@@ -1,10 +1,9 @@
+import { Dashboard } from "./pages/Dashboard";
 
 export const App = () => {
   return (
     <div className="App">
-     <h1>oi</h1>
+      <Dashboard />
     </div>
   );
-}
-
-
+};
