@@ -17,11 +17,17 @@ export const FinaceProvider = ({ children }) => {
     return item.type === "Saída" ? acc + item.value : acc;
   }, 0);
 
+  const deleteTransaction = (index) => {
+    const newList = listItem.filter((item, i) => index !== i);
+    setListItem(newList);
+  };
+
   return (
     <FinaceContext.Provider
       value={{
         listItem,
         setListItem,
+        deleteTransaction,
         Total,
         TotalPositive,
         TotalNegative,

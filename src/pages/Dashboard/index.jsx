@@ -28,7 +28,7 @@ export const Dashboard = () => {
               <img src="-" alt="-" />
             </div>
             <h2>
-              R$ <span>-{TotalNegative.toFixed()}</span>
+              R$ <span>{TotalNegative.toFixed()}</span>
             </h2>
           </div>
           <div>
