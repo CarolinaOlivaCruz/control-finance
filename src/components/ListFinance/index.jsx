@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { FinaceContext } from "../../providers/FinaceContext";
 import iconDelete from "../../assets/delete.png";
-import { StyledList, StyledTransaction } from "./style";
+import { StyledList } from "./style";
 
 export const ListFinance = () => {
   const { listItem, deleteTransaction } = useContext(FinaceContext);

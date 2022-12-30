@@ -40,7 +40,7 @@ export const Form = () => {
         <input type="text" placeholder="0.00" {...register("value")} />
         {errors.value?.message && <p>{errors.value.message}</p>}
       </fieldset>
-      <fieldset {...register("value")}>
+      <fieldset>
         <legend>Escolha o tipo da transação:</legend>
         <div>
           <input type="radio" value="Entrada" {...register("type")} />

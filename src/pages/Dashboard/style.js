@@ -7,6 +7,10 @@ export const Styledheader = styled.header`
   background-color: var(--color-primary);
   color: var(--color-grey-0);
   box-shadow: 0 2px 10px 1px grey;
+
+  @media (min-width: 800px) {
+   height: 100px;
+  }
 `;
 
 export const StyledContentResume = styled.section`
@@ -30,5 +34,19 @@ export const StyledContentResume = styled.section`
     img {
       width: 25px;
     }
+  }
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+    justify-content: space-between;
+
+    div {
+      width: 220px;
+      height: 100px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    margin: 5% auto;
   }
 `;

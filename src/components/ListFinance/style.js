@@ -12,7 +12,7 @@ export const StyledList = styled.section`
     width: 70%;
     display: flex;
     justify-content: space-between;
-
+   
     h4 {
       max-width: 60px;
     }
@@ -20,29 +20,36 @@ export const StyledList = styled.section`
 
   ul {
     width: 100%;
+    max-height: 215px;
     margin-top: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
+    overflow: auto;
+    scrollbar-width: initial;
 
-  li {
-    width: 100%;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-
-    div {
-      width: 75%;
+    li {
+      width: 100%;
+      padding: 10px 0;
       display: flex;
-      
-      p{
-        max-width: 60px;
-      }
-    }
+      justify-content: space-between;
 
-    img {
-      width: 20px;
+      div {
+        width: 75%;
+        display: flex;
+
+        p {
+          max-width: 60px;
+        }
+      }
+
+      img {
+        width: 20px;
+      }
+
+      @media(min-width: 700px){
+        padding: 10px;
+      }
     }
 
     button {
