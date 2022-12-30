@@ -29,6 +29,10 @@ export const StyledForm = styled.form`
       display: flex;
       gap: 10px;
     }
+
+    span {
+        color: red;
+      }
   }
 
   button {
@@ -45,8 +49,10 @@ export const StyledForm = styled.form`
     align-items: center;
 
     fieldset {
-      height: 80px;
+      min-height: 80px;
       border: none;
+
+     
     }
 
     button {

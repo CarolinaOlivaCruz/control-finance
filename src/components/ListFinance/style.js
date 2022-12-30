@@ -5,16 +5,16 @@ export const StyledList = styled.section`
   margin: 20px auto;
   background-color: var(--color-grey-0);
   border-radius: 4px;
-  padding: 5px;
+  padding: 10px 15px;
   max-width: 800px;
 
   div {
     width: 70%;
     display: flex;
     justify-content: space-between;
-   
+
     h4 {
-      max-width: 60px;
+      width: 80px;
     }
   }
 
@@ -35,11 +35,13 @@ export const StyledList = styled.section`
       justify-content: space-between;
 
       div {
-        width: 75%;
+        width: 70%;
         display: flex;
 
         p {
-          max-width: 60px;
+          width: 80px;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       }
 
@@ -47,7 +49,7 @@ export const StyledList = styled.section`
         width: 20px;
       }
 
-      @media(min-width: 700px){
+      @media (min-width: 700px) {
         padding: 10px;
       }
     }

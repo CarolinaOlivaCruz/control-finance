@@ -18,30 +18,29 @@ export const Form = () => {
     resolver: yupResolver(formSchema),
   });
 
-  const submit = (data) => {
-    console.log(data);
+  const onSubmit = (data) => {
     setListItem([...listItem, data]);
     reset();
   };
 
   return (
-    <StyledForm onSubmit={handleSubmit(submit)} noValidate>
+    <StyledForm onSubmit={handleSubmit(onSubmit)} noValidate>
       <fieldset>
-        <label>Descrição</label>
+        <label>Descrição *</label>
         <input
           type="text"
-          placeholder="Digite aqui..."
+          placeholder="Ex.: Aluguel"
           {...register("description")}
         />
-        {errors.description?.message && <p>{errors.description.message}</p>}
+        {errors?.description?.message && <span>Campo inválido</span>}
       </fieldset>
       <fieldset>
-        <label>Valor</label>
+        <label>Valor *</label>
         <input type="text" placeholder="0.00" {...register("value")} />
-        {errors.value?.message && <p>{errors.value.message}</p>}
+        {errors.value?.message && <span>Campo inválido</span>}
       </fieldset>
       <fieldset>
-        <legend>Escolha o tipo da transação:</legend>
+        <legend>Escolha o tipo da transação: *</legend>
         <div>
           <input type="radio" value="Entrada" {...register("type")} />
           <label>Entrada</label>
@@ -50,7 +49,7 @@ export const Form = () => {
           <input type="radio" value="Saída" {...register("type")} />
           <label>Saída</label>
         </div>
-        {errors.type?.message && <p>{errors.type.message}</p>}
+        {errors.type?.message && <span>Campo inválido</span>}
       </fieldset>
       <button type="submit">Adicionar</button>
     </StyledForm>
