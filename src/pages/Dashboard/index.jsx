@@ -2,30 +2,26 @@ import { useContext } from "react";
 import { Form } from "../../components/Form";
 import { ListFinance } from "../../components/ListFinance";
 import { FinaceContext } from "../../providers/FinaceContext";
+import { StyledContentResume, Styledheader } from "./style";
+
+import wallet from "../../assets/wallet.png";
+import increase from "../../assets/increase.png";
+import decrease from "../../assets/decrease.png";
 
 export const Dashboard = () => {
   const { Total, TotalPositive, TotalNegative } = useContext(FinaceContext);
 
   return (
     <>
-      <header>
+      <Styledheader>
         <h1>Controle Finaceiro</h1>
-      </header>
+      </Styledheader>
       <main>
-        <section>
+        <StyledContentResume>
           <div>
             <div>
-              <h3>Entradas</h3>
-              <img src="+" alt="+" />
-            </div>
-            <h2>
-              R$ <span>{TotalPositive.toFixed()}</span>
-            </h2>
-          </div>
-          <div>
-            <div>
+              <img src={decrease} alt="-" />
               <h3>Saídas</h3>
-              <img src="-" alt="-" />
             </div>
             <h2>
               R$ <span>{TotalNegative.toFixed()}</span>
@@ -33,27 +29,27 @@ export const Dashboard = () => {
           </div>
           <div>
             <div>
+              <img src={increase} alt="+" />
+              <h3>Entradas</h3>
+            </div>
+            <h2>
+              R$ <span>{TotalPositive.toFixed()}</span>
+            </h2>
+          </div>
+          <div>
+            <div>
+              <img src={wallet} alt="$" />
               <h3>Total</h3>
-              <img src="$" alt="$" />
             </div>
             <h2>
               R$ <span>{Total.toFixed()}</span>
             </h2>
           </div>
-        </section>
+        </StyledContentResume>
         <section>
           <Form />
         </section>
-        <section>
-          <div>
-            <h4>Descrição</h4>
-            <h4>Valor</h4>
-            <h4>Tipo</h4>
-          </div>
-          <div>
-            <ListFinance />
-          </div>
-        </section>
+        <ListFinance />
       </main>
     </>
   );

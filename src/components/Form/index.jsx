@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "./formSchema";
 import { FinaceContext } from "../../providers/FinaceContext";
+import { StyledForm } from "./style";
 
 export const Form = () => {
   const { listItem, setListItem } = useContext(FinaceContext);
@@ -18,12 +19,13 @@ export const Form = () => {
   });
 
   const submit = (data) => {
+    console.log(data);
     setListItem([...listItem, data]);
-    reset()
+    reset();
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)} noValidate>
+    <StyledForm onSubmit={handleSubmit(submit)} noValidate>
       <fieldset>
         <label>Descrição</label>
         <input
@@ -38,14 +40,19 @@ export const Form = () => {
         <input type="text" placeholder="0.00" {...register("value")} />
         {errors.value?.message && <p>{errors.value.message}</p>}
       </fieldset>
-      <fieldset>
-        <select {...register("type")}>
-          <option value="Entrada">Entrada</option>
-          <option value="Saída">Saída</option>
-        </select>
+      <fieldset {...register("value")}>
+        <legend>Escolha o tipo da transação:</legend>
+        <div>
+          <input type="radio" value="Entrada" {...register("type")} />
+          <label>Entrada</label>
+        </div>
+        <div>
+          <input type="radio" value="Saída" {...register("type")} />
+          <label>Saída</label>
+        </div>
         {errors.type?.message && <p>{errors.type.message}</p>}
       </fieldset>
       <button type="submit">Adicionar</button>
-    </form>
+    </StyledForm>
   );
 };

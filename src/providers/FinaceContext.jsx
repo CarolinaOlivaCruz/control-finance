@@ -13,7 +13,7 @@ export const FinaceProvider = ({ children }) => {
     return item.type === "Entrada" ? acc + item.value : acc;
   }, 0);
 
-  const TotalNegative = listItem.reduce((acc, item) => {
+  const TotalNegative = listItem.reduce((acc, item, ) => {
     return item.type === "Saída" ? acc + item.value : acc;
   }, 0);
 
