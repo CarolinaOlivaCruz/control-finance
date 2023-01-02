@@ -7,15 +7,17 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     text-decoration: none;
     outline: 0;
+  
   }
 
   :root {
     --color-primary:#155BCB;
     --color-grey-10: #f2f2f2;
-    --color-grey-0: #ffff;
+    --color-grey-0: #ffffff;
   }
 
   body {
-    background-color: var(--color-grey-10);
+    position: relative;
   }
+
 `;

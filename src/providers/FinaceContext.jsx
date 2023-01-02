@@ -4,6 +4,7 @@ export const FinaceContext = createContext();
 
 export const FinaceProvider = ({ children }) => {
   const [listItem, setListItem] = useState([]);
+  const [isModal, setIsModal] = useState(false);
 
   const Total = listItem.reduce((acc, item) => {
     return item.type === "Entrada" ? acc + item.value : acc - item.value;
@@ -31,6 +32,8 @@ export const FinaceProvider = ({ children }) => {
         Total,
         TotalPositive,
         TotalNegative,
+        isModal, 
+        setIsModal,
       }}
     >
       {children}

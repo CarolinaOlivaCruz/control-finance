@@ -1,13 +1,15 @@
 import { useContext } from "react";
 import { FinaceContext } from "../../providers/FinaceContext";
 import iconDelete from "../../assets/delete.png";
-import { StyledList } from "./style";
+import { StyledButtonAdd, StyledList } from "./style";
+
 
 export const ListFinance = () => {
-  const { listItem, deleteTransaction } = useContext(FinaceContext);
+  const { listItem, deleteTransaction, setIsModal } = useContext(FinaceContext);
 
   return (
     <StyledList>
+      <h3>Transações</h3>
       <div>
         <h4>Descrição</h4>
         <h4>Valor</h4>
@@ -23,6 +25,7 @@ export const ListFinance = () => {
                 <p>{description}</p>
                 <p>{value.toFixed()}</p>
                 <p>{type}</p>
+            
               </div>
               <button type="button" onClick={() => deleteTransaction(index)}>
                 <img src={iconDelete} alt="" />
@@ -31,6 +34,9 @@ export const ListFinance = () => {
           );
         })}
       </ul>
+      <StyledButtonAdd>
+          <button onClick={() => setIsModal(true)}>+</button>
+        </StyledButtonAdd>
     </StyledList>
   );
 };

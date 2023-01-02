@@ -2,55 +2,59 @@ import { useContext } from "react";
 import { Form } from "../../components/Form";
 import { ListFinance } from "../../components/ListFinance";
 import { FinaceContext } from "../../providers/FinaceContext";
-import { StyledContentResume, Styledheader } from "./style";
+import {
+  StyledButtonAdd,
+  StyledContentResume,
+  StyledContetResume,
+  StyledContetTotal,
+  StyledDiv,
+  Styledheader,
+  StyledMain,
+  StyledTotal,
+} from "./style";
 
 import wallet from "../../assets/wallet.png";
 import increase from "../../assets/increase.png";
 import decrease from "../../assets/decrease.png";
 
 export const Dashboard = () => {
-  const { Total, TotalPositive, TotalNegative } = useContext(FinaceContext);
+  const { Total, TotalPositive, TotalNegative, isModal, setIsModal } =
+    useContext(FinaceContext);
 
   return (
     <>
+      {isModal && <Form />}
       <Styledheader>
-        <h1>Controle Finaceiro</h1>
+        <h1>Finance</h1>
       </Styledheader>
-      <main>
-        <StyledContentResume>
-          <div>
-            <div>
-              <img src={decrease} alt="-" />
-              <h3>Saídas</h3>
-            </div>
-            <h2>
-              R$ <span>{TotalNegative.toFixed()}</span>
-            </h2>
-          </div>
-          <div>
-            <div>
-              <img src={increase} alt="+" />
-              <h3>Entradas</h3>
-            </div>
-            <h2>
-              R$ <span>{TotalPositive.toFixed()}</span>
-            </h2>
-          </div>
-          <div>
+      <StyledMain>
+        <section>
+          <StyledContetTotal>
             <div>
               <img src={wallet} alt="$" />
-              <h3>Total</h3>
+              <h2>Total</h2>
             </div>
-            <h2>
-              R$ <span>{Total.toFixed()}</span>
-            </h2>
+            <span>R$ {Total.toFixed()} </span>
+          </StyledContetTotal>
+          <div>
+            <StyledContetResume>
+              <div>
+                <img src={increase} alt="+" />
+                <h3>Entradas</h3>
+              </div>
+              <span>R$ {TotalPositive.toFixed()}</span>
+            </StyledContetResume>
+            <StyledContetResume>
+              <div>
+                <img src={decrease} alt="-" />
+                <h3>Saídas</h3>
+              </div>
+              <span>R$ {TotalNegative.toFixed()}</span>
+            </StyledContetResume>
           </div>
-        </StyledContentResume>
-        <section>
-          <Form />
         </section>
         <ListFinance />
-      </main>
+      </StyledMain>
     </>
   );
 };

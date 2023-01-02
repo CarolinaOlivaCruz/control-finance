@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const StyledList = styled.section`
-  width: 90%;
-  margin: 20px auto;
   background-color: var(--color-grey-0);
   border-radius: 4px;
-  padding: 10px 15px;
   max-width: 800px;
+
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
 
   div {
     width: 70%;
@@ -20,7 +22,7 @@ export const StyledList = styled.section`
 
   ul {
     width: 100%;
-    max-height: 215px;
+    max-height: 160px;
     margin-top: 15px;
     display: flex;
     flex-direction: column;
@@ -33,6 +35,7 @@ export const StyledList = styled.section`
       padding: 10px 0;
       display: flex;
       justify-content: space-between;
+      border-bottom: 1px solid grey;
 
       div {
         width: 70%;
@@ -59,4 +62,20 @@ export const StyledList = styled.section`
       border: none;
     }
   }
+
+`;
+
+export const StyledButtonAdd = styled.section`
+display: flex;
+align-items: flex-end;
+
+button {
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  border: none;
+  border-radius: 50px;
+  color: var(--color-grey-0);
+  background-color: var(--color-primary);
+}
 `;
