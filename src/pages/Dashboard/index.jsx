@@ -3,14 +3,10 @@ import { Form } from "../../components/Form";
 import { ListFinance } from "../../components/ListFinance";
 import { FinaceContext } from "../../providers/FinaceContext";
 import {
-  StyledButtonAdd,
-  StyledContentResume,
   StyledContetResume,
   StyledContetTotal,
-  StyledDiv,
   Styledheader,
   StyledMain,
-  StyledTotal,
 } from "./style";
 
 import wallet from "../../assets/wallet.png";
@@ -18,7 +14,7 @@ import increase from "../../assets/increase.png";
 import decrease from "../../assets/decrease.png";
 
 export const Dashboard = () => {
-  const { Total, TotalPositive, TotalNegative, isModal, setIsModal } =
+  const { Total, TotalPositive, TotalNegative, isModal } =
     useContext(FinaceContext);
 
   return (
